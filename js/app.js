@@ -38,7 +38,7 @@ var firstAndPike = {
       var customers = Math.floor(Math.random() * (this.max + this.min + 1) + this.min);
       this.cusPerHour.push(customers);
       console.log('this is customers' + customers);
-
+      
     }
   },
   totalCookiesPerHour: function(){
@@ -76,7 +76,7 @@ var seatacAirport = {
       var customers = Math.floor(Math.random() * (this.max + this.min + 1) + this.min);
       this.cusPerHour.push(customers);
       console.log('this is customers' + customers);
-
+      
     }
   },
   totalCookiesPerHour: function(){
@@ -114,7 +114,7 @@ var seattleCenter = {
       var customers = Math.floor(Math.random() * (this.max + this.min + 1) + this.min);
       this.cusPerHour.push(customers);
       console.log('this is customers' + customers);
-
+      
     }
   },
   totalCookiesPerHour: function(){
@@ -152,7 +152,7 @@ var capitolHill = {
       var customers = Math.floor(Math.random() * (this.max + this.min + 1) + this.min);
       this.cusPerHour.push(customers);
       console.log('this is customers' + customers);
-
+      
     }
   },
   totalCookiesPerHour: function(){
@@ -190,7 +190,7 @@ var Alki = {
       var customers = Math.floor(Math.random() * (this.max + this.min + 1) + this.min);
       this.cusPerHour.push(customers);
       console.log('this is customers' + customers);
-
+      
     }
   },
   totalCookiesPerHour: function(){
