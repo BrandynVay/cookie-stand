@@ -139,7 +139,7 @@ seattleCenter.totalCookiesPerHour();
 seattleCenter.render();
 
 var capitolHill = {
-  name: 'First and Pike',
+  name: 'Capitol Hill',
   neighborhood: 'Downtown Seattle',
   min: 20,
   max: 38,
@@ -177,8 +177,8 @@ capitolHill.totalCookiesPerHour();
 capitolHill.render();
 
 var Alki = {
-  name: 'First and Pike',
-  neighborhood: 'Downtown Seattle',
+  name: 'Alki',
+  neighborhood: 'West Seattle',
   min: 2,
   max: 16,
   avgCookies: 4.6,
