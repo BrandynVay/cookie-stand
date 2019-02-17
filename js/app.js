@@ -19,7 +19,7 @@ var hours = [
   'Daily Location Total',
 ];
 
-var totalNum = 'Daily Location Total';
+var totalNum = '';
 
 function header(){
   var table = document.getElementById('thead');
@@ -79,7 +79,7 @@ function Locations (name, table, neighborhood, min, max, avgCookies) {
       this.total = this.total + this.cookiesPerHour[i];
     }
     var total = document.createElement('td');
-    total.textContent = `${totalNum}: ${this.total} cookies`;
+    total.textContent = `${totalNum}${this.total}`;
     this.table.appendChild(total);
   };
 }
