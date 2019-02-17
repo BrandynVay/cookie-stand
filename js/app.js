@@ -1,5 +1,6 @@
 'use strict';
 var hours = [
+  '',
   '6am',
   '7am',
   '8am',
@@ -15,16 +16,16 @@ var hours = [
   '6pm',
   '7pm',
   '8pm',
+  'Daily Location Total',
 ];
 
-var totalNum = 'total';
+var totalNum = 'Daily Location Total';
 
 function header(){
   var table = document.getElementById('thead');
   for (var i = 0; i < hours.length; i++) {
     var thEl = document.createElement('th');
     thEl.textContent = hours[i];
-    // thEl.textContent(hours[i]);
     table.appendChild(thEl);
   }
 }
@@ -67,9 +68,13 @@ function Locations (name, table, neighborhood, min, max, avgCookies) {
   this.render = function(){
     this.randomCustomer();
     this.totalCookiesPerHour();
-    for (var i = 0; i < hours.length; i++){
+    var titleEl = document.createElement('td');
+    this.table.appendChild(titleEl);
+    titleEl.textContent = `${name}`;
+
+    for (var i = 1; i < hours.length - 1; i++){
       var tdEl = document.createElement('td');
-      tdEl.textContent = `${hours[i]}: ${this.cookiesPerHour[i]} cookies.`;
+      tdEl.textContent = `${this.cookiesPerHour[i]}`;
       this.table.appendChild(tdEl);
       this.total = this.total + this.cookiesPerHour[i];
     }
