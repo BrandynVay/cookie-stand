@@ -97,9 +97,9 @@ capitolHill.render();
 alki.render();
 
 function hourTotal(){
-  var totalsRow = [];
+  var totalsRow = ['Total'];
   var table = document.getElementById('tfoot');
-  for (var i = 1; i < hours.length; i++){
+  for (var i = 1; i < hours.length - 1; i++){
     var total = firstAndPike.cookiesPerHour[i] +
     seatacAirport.cookiesPerHour[i] +
     seattleCenter.cookiesPerHour[i] +
@@ -107,7 +107,7 @@ function hourTotal(){
     alki.cookiesPerHour[i];
     totalsRow.push(total);
   }
-  for (var j = 0; j < totalsRow.length; j++){
+  for (var j = 0; j < totalsRow.length + 1; j++){
     var tdEl = document.createElement('td');
     tdEl.textContent = totalsRow[j];
     table.appendChild(tdEl);
