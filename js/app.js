@@ -20,6 +20,18 @@ var hours = [
 ];
 
 var totalNum = '';
+var standsPerHourTotal = [0, 0, 0, 0, 0];
+
+function footer(){
+  var table = document.getElementById('tfoot');
+  for (var i = 0; i < hours.length; i++){
+    var tdEl = document.createElement('td');
+    tdEl.textContent = hours[i];
+    table.appendChild(tdEl);
+  }
+}
+
+footer();
 
 function header(){
   var table = document.getElementById('thead');
