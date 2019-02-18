@@ -20,18 +20,6 @@ var hours = [
 ];
 
 var totalNum = '';
-var standsPerHourTotal = [0, 0, 0, 0, 0];
-
-function footer(){
-  var table = document.getElementById('tfoot');
-  for (var i = 0; i < hours.length; i++){
-    var tdEl = document.createElement('td');
-    tdEl.textContent = hours[i];
-    table.appendChild(tdEl);
-  }
-}
-
-footer();
 
 function header(){
   var table = document.getElementById('thead');
@@ -107,3 +95,24 @@ seatacAirport.render();
 seattleCenter.render();
 capitolHill.render();
 alki.render();
+
+function hourTotal(){
+  var totalsRow = [];
+  var table = document.getElementById('tfoot');
+  for (var i = 1; i < hours.length; i++){
+    var total = firstAndPike.cookiesPerHour[i] +
+    seatacAirport.cookiesPerHour[i] +
+    seattleCenter.cookiesPerHour[i] +
+    capitolHill.cookiesPerHour[i] +
+    alki.cookiesPerHour[i];
+    totalsRow.push(total);
+  }
+  for (var j = 0; j < totalsRow.length; j++){
+    var tdEl = document.createElement('td');
+    tdEl.textContent = totalsRow[j];
+    table.appendChild(tdEl);
+  }
+  console.log(totalsRow);
+}
+
+hourTotal();
