@@ -85,27 +85,25 @@ new Locations('alki', cookieStands, 'West Seattle', 2, 16, 4.6);
 
 
 function footer() {
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Total';
-  trEl.appendChild(tdEl);
+  var trEl = document.createElement('tr'); // Creates the table row element to be appended to the HTML page.
+  var tdEl = document.createElement('td'); // Creates the table data element for the row.
+  tdEl.textContent = 'Total'; // Creates first blank space in top left corner.
+  trEl.appendChild(tdEl); // Creates first blank space in top left corner.
   var daysTotal = 0;
-  for (var i = 0; i < hours.length; i++) {
-    // console.log(shopList[i]);
+  for (var i = 0; i < hours.length; i++) { // For loop that pulls data from the array to make data for the row.
     var thisHoursTotal = 0;
     for (var j = 0; j < shopList.length; j++) {
-      // console.log(shopList.length, ';', shopList[i].cookiesPerHour);
       thisHoursTotal = thisHoursTotal + shopList[j].cookiesPerHour[i];
     }
     daysTotal = daysTotal + thisHoursTotal;
-    var tdEl = document.createElement('td');
-    tdEl.textContent = thisHoursTotal;
-    trEl.appendChild(tdEl);
+    var tdEl = document.createElement('td'); // Creates the table data element for the row.
+    tdEl.textContent = thisHoursTotal; // grabs the data from the array that is to be the data element.
+    trEl.appendChild(tdEl); // appends the data element that it created to the row.
   }
-  var tdEl2 = document.createElement('td');
-  tdEl2.textContent = daysTotal;
-  trEl.appendChild(tdEl2);
-  cookieStands.appendChild(trEl);
+  var tdEl2 = document.createElement('td'); // Creates end Total row.
+  tdEl2.textContent = daysTotal; // Creates end Total row.
+  trEl.appendChild(tdEl2); // Creates end Total row.
+  cookieStands.appendChild(trEl); // appends the entire row that was just created by the for loop.
 }
 
 footer();
