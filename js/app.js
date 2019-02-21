@@ -108,3 +108,44 @@ function footer() {
 
 footer();
 
+var storeList = document.getElementById('list');
+var storeForm = document.getElementById('store-form');
+var allComments = [];
+
+var Comment = function(username, text, min, max, avg) {
+  this.username = username;
+  this.text = text;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+};
+
+Comment.prototype.render = function(){
+  var liEl = document.createElement('li');
+  liEl.innerHTML = '<b>' + this.username + ': </b><em>' + this.text + '</em>';
+  return liEl;
+};
+
+function handleCommentSubmit(event) {
+  event.preventDefault();
+  // console.log(event);
+  // console.log(event.target.store);
+  console.log(event.target.store.value);
+
+  var commenter = event.target.store.value;
+  var newComment = new Comment(commenter);
+
+  event.target.store.value = null;
+
+  allComments.unshift(newComment);
+  renderAllComments();
+}
+
+function renderAllComments(){
+  storeList.innerHTML = '';
+  for(var i = 0; i < allComments.length; i++){
+    storeList.appendChild(allComments[i].render());
+  }
+}
+
+storeForm.addEventListener('submit', handleCommentSubmit);
