@@ -18,6 +18,7 @@ var hours = [
 ];
 // debugger;
 var cookieStands = document.getElementById('cookiestands');
+var storeForm = document.getElementById('store-form');
 var shopList = [];
 
 function header() {
@@ -38,13 +39,13 @@ function header() {
   cookieStands.appendChild(trEl);
 }
 
-function Locations(name, table, neighborhood, min, max, avgCookies) {
+function Locations(name, min, max, avgCookies, text, table) {
   this.name = name;
   this.table = table;
-  this.neighborhood = neighborhood;
   this.min = min;
   this.max = max;
   this.avgCookies = avgCookies;
+  this.text = text;
   this.cookiesPerHour = [];
   this.total = 0;
 
@@ -77,16 +78,17 @@ function Locations(name, table, neighborhood, min, max, avgCookies) {
 
 header();
 
-new Locations('1st And Pike', cookieStands, 'Downtown Seattle', 23, 65, 6.3);
-new Locations('SeaTac Airport', cookieStands, 'SeaTac', 3, 24, 1.2);
-new Locations('Seattle Center', cookieStands, 'Downtown Seattle', 11, 38, 3.7);
-new Locations('Capitol Hill', cookieStands, 'Downtown Seattle', 20, 38, 2.3);
-new Locations('alki', cookieStands, 'West Seattle', 2, 16, 4.6);
+new Locations('1st And Pike', 23, 65, 6.3, cookieStands);
+new Locations('SeaTac Airport', 3, 24, 1.2, cookieStands);
+new Locations('Seattle Center', 11, 38, 3.7, cookieStands);
+new Locations('Capitol Hill', 20, 38, 2.3, cookieStands);
+new Locations('alki', 2, 16, 4.6, cookieStands);
 
 
 function footer() {
   var trEl = document.createElement('tr'); // Creates the table row element to be appended to the HTML page.
   var tdEl = document.createElement('td'); // Creates the table data element for the row.
+  trEl.setAttribute('id', 'footer');
   tdEl.textContent = 'Total'; // Creates first blank space in top left corner.
   trEl.appendChild(tdEl); // Creates first blank space in top left corner.
   var daysTotal = 0;
@@ -108,44 +110,23 @@ function footer() {
 
 footer();
 
-var storeList = document.getElementById('list');
-var storeForm = document.getElementById('store-form');
-var allComments = [];
+function deleteRow(){
+  var element = document.getElementById('footer');
+  element.parentNode.removeChild(element);  
+}
 
-var Comment = function(username, text, min, max, avg) {
-  this.username = username;
-  this.text = text;
-  this.min = min;
-  this.max = max;
-  this.avg = avg;
-};
-
-Comment.prototype.render = function(){
-  var liEl = document.createElement('li');
-  liEl.innerHTML = '<b>' + this.username + ': </b><em>' + this.text + '</em>';
-  return liEl;
-};
-
-function handleCommentSubmit(event) {
+function newStore(event){
   event.preventDefault();
-  // console.log(event);
-  // console.log(event.target.store);
-  console.log(event.target.store.value);
+  var location = event.target.store.value;
+  var min = event.target.min.value;
+  console.log(min);
+  var max = event.target.max.value;
+  var avg = event.target.avg.value;
 
-  var commenter = event.target.store.value;
-  var newComment = new Comment(commenter);
+  new Locations(location, min, max, avg);
 
-  event.target.store.value = null;
-
-  allComments.unshift(newComment);
-  renderAllComments();
+  deleteRow();
+  footer();
 }
 
-function renderAllComments(){
-  storeList.innerHTML = '';
-  for(var i = 0; i < allComments.length; i++){
-    storeList.appendChild(allComments[i].render());
-  }
-}
-
-storeForm.addEventListener('submit', handleCommentSubmit);
+storeForm.addEventListener('submit', newStore);
