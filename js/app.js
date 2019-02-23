@@ -119,7 +119,6 @@ function newStore(event){
   event.preventDefault();
   var location = event.target.store.value;
   var min = event.target.min.value;
-  console.log(min);
   var max = event.target.max.value;
   var avg = event.target.avg.value;
 
