@@ -3,23 +3,30 @@
     <head>
         <link rel="stylesheet" href="css/style.css">
         <meta charset="UTF-8">
-        <title>Cookie Sales</title>
+        <title>Store Form</title>
     </head>
-    <table id = "cookiestands">
+    <table id = "cookiestands"></table>
     </table>
     <body>
         <form id="store-form">
             <fieldset>
                 <legend>Store Submission Form</legend>
 
-                <label for="Store"></label>
-                <input name="Store" type="text">
+                <label for="store">Location</label>
+                <input name="store" type="text">
 
-                <button type="Submit">Create New Store</button>
+               <label for="min">Min.</label>
+               <input name="min" type="text">
+
+               <label for="max">Max</label>
+               <input name="max" type="text">
+
+               <label for="avg">Avg.</label>
+               <input name="avg" type="text">
+
+                <button type="submit">Create New Store</button>
             </fieldset>
         </form>
-
-        <ul id="List"></ul>
 
         <script src="js/app.js"></script>
     </body>
